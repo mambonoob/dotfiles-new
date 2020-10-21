@@ -12,6 +12,7 @@ I use a combination of xmonad+zsh+alacritty, but I also include these dotfiles:
 - init.vim/vimrc
 - sxhkd/bspwm
 - i3-gaps
+- doom emacs (quite basic)
 - a bunch of other shit
 
 included scripts:

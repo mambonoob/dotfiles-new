@@ -1,0 +1,120 @@
+# The following lines were added by compinstall
+
+zstyle ':completion:*' auto-description 'plz specify: %d'
+zstyle ':completion:*' completer _expand _complete _ignored _correct _approximate
+zstyle ':completion:*' expand prefix
+zstyle ':completion:*' file-sort access
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*' ignore-parents parent pwd directory
+zstyle ':completion:*' insert-unambiguous true
+zstyle ':completion:*' list-colors ''
+zstyle ':completion:*' list-prompt %SAt %p: tab for more or char to insert%s
+zstyle ':completion:*' matcher-list 'r:|[._-]=** r:|=**' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'm:{[:lower:]}={[:upper:]}' 'l:|=* r:|=*'
+zstyle ':completion:*' menu select=5
+zstyle ':completion:*' original true
+zstyle ':completion:*' preserve-prefix '//[^/]##/'
+zstyle ':completion:*' select-prompt %Sscrolling at %p%s
+zstyle ':completion:*' use-compctl true
+zstyle ':completion:*' verbose true
+zstyle :compinstall filename '/home/jz/.zshrc'
+
+autoload -Uz compinit promptinit # I added the promptinit related stuff manually
+compinit
+promptinit
+export PS1='%U%F{blue}%n%F{11}%u%B@%b%F{blue}%M %F{123}[%B%1~%b] %F{160}(%?) %B%F{220}%#%b '
+export RPS1=''
+# End of lines added by compinstall
+# Lines configured by zsh-newuser-install
+HISTFILE=~/.zsh_histfile
+HISTSIZE=1000
+SAVEHIST=10000
+setopt autocd extendedglob notify
+unsetopt beep nomatch
+bindkey -v
+unsetopt correct_all
+# End of lines configured by zsh-newuser-install
+
+export TERM="xterm-256color"              # getting proper colors
+export HISTCONTROL=ignoredups:erasedups   # no duplicate entries
+export ALTERNATE_EDITOR=""                # setting for emacsclient
+export EDITOR="nvim"      		  # Use NVim in terminal for EDITOR editor
+export VISUAL="urxvt -e nvim"   	  # Use NVim in terminal for VISUAL editor
+export MANPAGER="/bin/sh -c \"col -b | vim --not-a-term -c 'set ft=man ts=8 nomod nolist noma' -\"" # Use vim as manpager
+alias doom="~/.emacs.d/bin/doom"
+alias doas="doas --"
+alias sudo=doas
+alias ..='cd ..' 
+alias ...='cd ../..'
+alias .3='cd ../../..'
+alias .4='cd ../../../..'
+alias .5='cd ../../../../..'
+alias vim="nvim"
+alias em="/usr/bin/emacs -nw"
+alias emacs="/usr/bin/emacs"
+alias pacsyu='sudo pacman -Syyu'                 # update only standard pkgs
+alias yaysua="yay -Sua --noconfirm"              # update only AUR pkgs
+alias yaysyu="yay -Syu --noconfirm"              # update standard pkgs and AUR pkgs
+alias unlock="sudo rm /var/lib/pacman/db.lck"    # remove pacman lock
+alias cleanup='sudo pacman -Rns $(pacman -Qtdq)' # remove orphaned packages
+alias rezsh='source /home/jz/.zshrc'
+alias mirror=" sudo reflector --latest 50 --number 20 --sort  rate --save /etc/pacman.d/mirrorlist"
+alias mirrord="sudo reflector --latest 50 --number 20 --sort delay --save /etc/pacman.d/mirrorlist"
+alias mirrors="sudo reflector --latest 50 --number 20 --sort score --save /etc/pacman.d/mirrorlist"
+alias mirrora="sudo reflector --latest 50 --number 20 --sort age --save /etc/pacman.d/mirrorlist"
+alias ls='exa -al --color=always --group-directories-first' # my preferred listing
+alias la='exa -a --color=always --group-directories-first'  # all files and dirs
+alias ll='exa -l --color=always --group-directories-first'  # long format
+alias lt='exa -aT --color=always --group-directories-first' # tree listing
+alias l.='exa -a | egrep "^\."'
+alias grep='grep --color=auto'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias cp="cp -iv"
+alias mv='mv -iv'
+alias rm='rm -iv'
+alias df='df -h'                          # human-readable sizes
+alias free='free -m'                      # show sizes in MB
+alias psmem='ps auxf | sort -nr -k 3'
+alias psmem10='ps auxf | sort -nr -k 4 | head -10'
+alias pscpu='ps auxf | sort -nr -k 3'
+alias pscpu10='ps auxf | sort -nr -k 3 | head -10'
+alias addup='git add -u'
+alias addall='git add .'
+alias branch='git branch'
+alias checkout='git checkout'
+alias clone='git clone'
+alias commit='git commit -m'
+alias fetch='git fetch'
+alias pull='git pull origin'
+alias push='git push origin'
+alias status='git status'
+alias tag='git tag'
+alias newtag='git tag -a'
+alias ssn="sudo shutdown now"
+alias sr="sudo reboot"
+alias merge='xrdb -merge ~/.Xresources'
+alias xres='xrdb ~/.Xresources'
+alias jctl="journalctl -p 3 -xb"
+alias gpg-check="gpg2 --keyserver-options auto-key-retrieve --verify"
+alias gpg-retrieve="gpg2 --keyserver-options auto-key-retrieve --receive-keys"
+alias yta-aac="youtube-dl --extract-audio --audio-format aac "
+alias yta-best="youtube-dl --extract-audio --audio-format best "
+alias yta-flac="youtube-dl --extract-audio --audio-format flac "
+alias yta-m4a="youtube-dl --extract-audio --audio-format m4a "
+alias yta-mp3="youtube-dl --extract-audio --audio-format mp3 "
+alias yta-opus="youtube-dl --extract-audio --audio-format opus "
+alias yta-vorbis="youtube-dl --extract-audio --audio-format vorbis "
+alias yta-wav="youtube-dl --extract-audio --audio-format wav "
+alias ytv-best="youtube-dl -f bestvideo+bestaudio "
+alias tobash="sudo chsh $USER -s /usr/bin/bash && echo 'Now log out.'"
+alias tozsh="sudo chsh $USER -s /usr/bin/zsh && echo 'Now log out.'"
+alias tofish="sudo chsh $USER -s /usr/bin/fish && echo 'Now log out.'"
+# bare git repo alias for dotfiles
+alias config="/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME"
+alias tb="nc termbin.com 9999"
+alias rr='curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash'
+alias cl="clear"
+alias root="su -l --"
+alias neow3m='neofetch --w3m ~/.nf.jpg --crop_mode'
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh

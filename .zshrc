@@ -37,7 +37,7 @@ unsetopt beep notify
 bindkey -v
 # End of lines configured by zsh-newuser-install
 # Custom stuff now
-export PS1="%F{12}%n%F{15}@%M %1~ %F{13}%#%F{15} "
+export PS1="%F{12}%n%F{15}@%M %F{red}%? %F{15}%1~ %F{13}%#%F{15} "
 export RPS1="%~"
 export EDITOR=nvim
 export VISUAL=gvim
